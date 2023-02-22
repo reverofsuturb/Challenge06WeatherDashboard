@@ -14,6 +14,77 @@
     <title>Weather Dashboard</title>
   </head>
   <body>
+    <header class="container-fluid text-center">
+      <h1>Los Cuatro Amigos Weather Inc.</h1>
+    </header>
+    <div class="container-fluid">
+      <div class="row">
+        <section id="sidebar" class="col col-xs-12 col-sm-3 col-md-3">
+          <form id="search-form" class="form-inline">
+            <p>Enter a city and click search:</p>
+            <input id="userCity" type="text" value="Ex:  Denver" />
+            <button
+              id="searchBtn"
+              type="button"
+              class="btn btn-primary btn-lg btn-info"
+            >
+              Search
+            </button>
+          </form>
+        </section>
+        <main class="col-xs-12 col-sm-8 col-md-8 text-center">
+          <div id="weatherTable" class="container-fluid pd-3">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col" class="text-center">Date 1</th>
+                  <th scope="col" class="text-center">Date 2</th>
+                  <th scope="col" class="text-center">Date 3</th>
+                  <th scope="col" class="text-center">Date 4</th>
+                  <th scope="col" class="text-center">Date 5</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <!-- <th scope="row">icons</th> -->
+                  <td>icon</td>
+                  <td>icon</td>
+                  <td>icon</td>
+                  <td>icon</td>
+                  <td>icon</td>
+                </tr>
+                <tr>
+                  <!-- <th scope="row">Temps</th> -->
+                  <td>Temp</td>
+                  <td>Temp</td>
+                  <td>Temp</td>
+                  <td>Temp</td>
+                  <td>Temp</td>
+                </tr>
+                <tr>
+                  <td>Wind</td>
+                  <td>Wind</td>
+                  <td>Wind</td>
+                  <td>Wind</td>
+                  <td>Wind</td>
+                </tr>
+                <tr>
+                  <td>Humidity</td>
+                  <td>Humidity</td>
+                  <td>Humidity</td>
+                  <td>Humidity</td>
+                  <td>Humidity</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <main class="container-fluid text-center">
+      <div id="weatherTable" class="container"></div>
+    </main>
     <script
       src="https://code.jquery.com/jquery-3.6.3.js"
       integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
