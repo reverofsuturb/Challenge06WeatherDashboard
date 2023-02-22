@@ -1,10 +1,7 @@
 {
   "typeAcquisition": {
-      "include": [
-          "jquery"
-      ]
+    "include": ["jquery"]
   }
-
 }
 
-// this is a piece of code I use to enable intellisense for JQuery, not part of the assignment
+// this is a piece of code to enable intellisense for JQuery, not part of the assignment
