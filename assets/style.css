@@ -1,4 +1,58 @@
-main {
-  background-color: rgb(192, 192, 255);
+:root {
+  --blueD: rgb(6, 39, 68);
+  --light: rgb(249, 225, 255);
+  --blue: rgba(15, 69, 112, 0.596);
+}
+
+body {
+  font-family: "Montserrat Alternates", sans-serif;
+  height: 100vh;
+}
+
+nav {
+  background: transparent;
+  color: var(--light);
+}
+
+.background-img {
+  background-image: url("./images/lightning.avif");
+  background-size: cover;
   height: 100%;
+}
+
+.card {
+  background-color: var(--blue);
+  color: var(--light);
+}
+
+.cardFiller {
+  background: transparent;
+  color: transparent;
+}
+
+h1 {
+  width: 100%;
+}
+
+.citySearch {
+  display: flex;
+  flex-direction: column;
+}
+
+.historyBtn {
+  padding: 10px;
+  margin: 3px;
+  border-radius: 5px;
+  background-color: #1b66a377;
+  color: var(--light);
+}
+
+.formBox {
+  background-color: var(--blue);
+  color: var(--light);
+}
+
+.searchBox {
+  background-color: var(--light);
+  color: var(--blueD);
 }
