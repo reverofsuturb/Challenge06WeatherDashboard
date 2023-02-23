@@ -1,3 +1,4 @@
+//Variable Declarations
 var city;
 var cityEl = $("#userCity");
 var currentWeatherEl = $("#currentWeather");
@@ -7,10 +8,10 @@ var lat;
 var lon;
 var today = dayjs();
 
+//pull current local storage
 previousSearches = JSON.parse(localStorage.getItem("Search History"));
-console.log(previousSearches);
 
-//create buttons for previously searched cities
+//create buttons for previously searched cities if there are any
 if (previousSearches !== null) {
   for (var i = 0; i < previousSearches.length; i++) {
     var prevBtn = document.createElement("button");
@@ -23,8 +24,10 @@ if (previousSearches !== null) {
 //function to save city to local storage
 function saveSearch() {
   if (previousSearches === null) {
+    //checking if there is any storage array yet
     localStorage.setItem("Search History", JSON.stringify([city]));
   } else {
+    //if there is storage data already, add it to front of array
     console.log(previousSearches.includes(city));
     if (!previousSearches.includes(city)) {
       previousSearches.unshift(city);
@@ -40,13 +43,18 @@ function saveSearch() {
     }
   }
 }
+//function to get and show weather
 function getAndShowWeather() {
   var APIkey = "c553d4096a25b5d4d72caeabd2a72b94";
+
+  //pulls current weather data
   var requestUrl =
     "https://api.openweathermap.org/data/2.5/forecast?q=" +
     city +
+    "&cnt=1" +
     "&appid=" +
     APIkey;
+  //pulls geocaching API to get lat/lon
   var requestUrl2 =
     "https://api.openweathermap.org/geo/1.0/direct?q=" +
     city +
@@ -55,36 +63,30 @@ function getAndShowWeather() {
 
   console.log(requestUrl);
 
+  //API fetch current
   fetch(requestUrl)
     .then(function (response) {
       console.log(response);
-      console.log(response.status);
       if (response.status === 200) {
+        //save if city is found in data
         saveSearch();
       } else {
-        alert("Please check your spelling and try again.");
+        alert("Please check your spelling and try again."); //alert if no city found
       }
       return response.json();
     })
     .then(function (data) {
-      console.log(data);
-      console.log(data.list);
-      console.log(data.list[0]);
       tempKelvinCurrent = data.list[0].main.temp;
-      degFCurrent = Math.floor((tempKelvinCurrent - 273.15) * 1.8 + 32);
-      console.log(degFCurrent);
-      currentWeatherHead = document.createElement("h5");
-      currentTempEl = document.createElement("p");
-      currentWindEl = document.createElement("p");
-      currentHumidityEl = document.createElement("p");
+      degFCurrent = Math.floor((tempKelvinCurrent - 273.15) * 1.8 + 32); //convert to F
+
+      //jQuery references to html doc
       var currentIcon = $("#currentIcon");
       var currentWeatherHead = $("#curH");
       var currentTempEl = $("#curTemp");
       var currentWindEl = $("#curWind");
       var currentHumidityEl = $("#curHumidity");
 
-      //Setting current weather values for top box
-
+      //Setting current weather values and icon for top box
       currentIcon.attr(
         "src",
         "http://openweathermap.org/img/wn/" +
@@ -97,32 +99,10 @@ function getAndShowWeather() {
       currentTempEl.text("Temp:  " + degFCurrent + "\u00B0 F");
       currentWindEl.text("Wind:  " + data.list[0].wind.speed + " mph");
       currentHumidityEl.text("Humidity:  " + data.list[0].main.humidity + "%");
-
       currentWeatherEl.attr("alt", "Current weather for " + city + ".");
-      //Append current city and weather info
-      currentWeatherEl.append(
-        currentIcon,
-        currentWeatherHead,
-        currentTempEl,
-        currentWindEl,
-        currentHumidityEl
-      );
-      // for (var i = 0; i < 5; i++) {
-      //   // Creating elements, tablerow, tabledata, and anchor
-      //   var createTableRow = document.createElement("tr");
-      //   var tableDay = document.createElement("th");
-      //   var tableData = document.createElement("td");
-      //   var link = document.createElement("a");
-
-      //   // set demo will remove**
-
-      //   // append demo will remove**
-      //   tableData.appendChild(link);
-      //   createTableRow.appendChild(tableData);
-      //   tableBody.appendChild(createTableRow);
-      // }
     });
 
+  //API fetch geocaching to get lat/lon
   fetch(requestUrl2)
     .then(function (response) {
       console.log(response);
@@ -130,10 +110,11 @@ function getAndShowWeather() {
     })
     .then(function (data) {
       console.log(data);
+      //save lat and lon
       lat = data[0].lat;
       lon = data[0].lon;
-      console.log(lat);
-      console.log(lon);
+
+      //API to pull 5 day forecast
       requestUrl3 =
         "https://api.openweathermap.org/data/2.5/forecast?lat=" +
         lat +
@@ -142,6 +123,7 @@ function getAndShowWeather() {
         "&units=imperial" +
         "&appid=" +
         APIkey;
+      //fetch 5 day data
       fetch(requestUrl3)
         .then(function (response) {
           console.log(response);
@@ -149,10 +131,11 @@ function getAndShowWeather() {
         })
         .then(function (data) {
           console.log(data);
-          var j = 0;
+          var j = 0; //used to iterate through day cards
 
           //create 5 day forecast dashboard
           for (var i = 0; i < data.list.length; i = i + 7) {
+            //pulls data from each time period and store as variable
             var Temp = data.list[i].main.temp;
             var Wind = data.list[i].wind.speed;
             var Humidity = data.list[i].main.humidity;
@@ -161,6 +144,7 @@ function getAndShowWeather() {
             var forecastMonth = Number(data.list[i].dt_txt.slice(5, 7));
             var forecastYear = data.list[i].dt_txt.slice(0, 4);
 
+            //Use jQuery to reference element and add corresponding data
             var iconEl = $("#day" + j + "icon");
             iconEl.attr(
               "src",
@@ -182,10 +166,13 @@ function getAndShowWeather() {
     });
 }
 
+//Default location set to Denver
+city = "Denver";
+getAndShowWeather();
+
 //listen for searchHistory click
 searchHistory.on("click", function (event) {
   event.preventDefault();
-  console.log(event.target.textContent);
   city = event.target.textContent;
   getAndShowWeather();
 });
@@ -194,7 +181,5 @@ searchHistory.on("click", function (event) {
 $("#citySearch").on("submit", function (event) {
   event.preventDefault();
   city = cityEl.val();
-  console.log(city);
-
   getAndShowWeather();
 });
