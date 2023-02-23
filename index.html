@@ -33,15 +33,16 @@
           </form>
         </section>
         <main class="col-xs-12 col-sm-8 col-md-8 text-center">
+          <div id="currentWeather"></div>
           <div id="weatherTable" class="container-fluid pd-3">
             <table class="table">
               <thead>
-                <tr>
-                  <th scope="col" class="text-center">Date 1</th>
+                <tr id="tableDays">
+                  <!-- <th scope="col" class="text-center">Date 1</th>
                   <th scope="col" class="text-center">Date 2</th>
                   <th scope="col" class="text-center">Date 3</th>
                   <th scope="col" class="text-center">Date 4</th>
-                  <th scope="col" class="text-center">Date 5</th>
+                  <th scope="col" class="text-center">Date 5</th> -->
                 </tr>
               </thead>
               <tbody>
@@ -81,10 +82,11 @@
         </main>
       </div>
     </div>
-
-    <main class="container-fluid text-center">
-      <div id="weatherTable" class="container"></div>
-    </main>
+    <script
+      src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+      integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
+      crossorigin="anonymous"
+    ></script>
     <script
       src="https://code.jquery.com/jquery-3.6.3.js"
       integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
