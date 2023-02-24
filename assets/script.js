@@ -9,6 +9,8 @@ var lon;
 var today = dayjs();
 
 //pull current local storage
+
+function displayPrevious () {
 previousSearches = JSON.parse(localStorage.getItem("Search History"));
 
 //create buttons for previously searched cities if there are any
@@ -20,12 +22,24 @@ if (previousSearches !== null) {
     searchHistory.append(prevBtn);
   }
 }
+}
+
+//create button
+function createButton() {
+var prevBtn = document.createElement("button");
+      prevBtn.textContent = city;
+      prevBtn.setAttribute("class", "historyBtn");
+      console.log(prevBtn);
+      searchHistory.append(prevBtn);
+}
 
 //function to save city to local storage
 function saveSearch() {
+  previousSearches = JSON.parse(localStorage.getItem("Search History"));
   if (previousSearches === null) {
     //checking if there is any storage array yet
     localStorage.setItem("Search History", JSON.stringify([city]));
+    createButton();
   } else {
     //if there is storage data already, add it to front of array
     console.log(previousSearches.includes(city));
@@ -33,15 +47,9 @@ function saveSearch() {
       previousSearches.unshift(city);
       console.log(previousSearches);
       localStorage.setItem("Search History", JSON.stringify(previousSearches));
-
-      //create button
-      var prevBtn = document.createElement("button");
-      prevBtn.textContent = city;
-      prevBtn.setAttribute("class", "historyBtn");
-      console.log(prevBtn);
-      searchHistory.append(prevBtn);
-    }
+      createButton();
   }
+}
 }
 //function to get and show weather
 function getAndShowWeather() {
@@ -168,6 +176,7 @@ function getAndShowWeather() {
 
 //Default location set to Denver
 city = "Denver";
+displayPrevious();
 getAndShowWeather();
 
 //listen for searchHistory click
