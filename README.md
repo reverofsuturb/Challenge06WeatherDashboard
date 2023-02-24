@@ -12,13 +12,14 @@ Input a city into the search to see it's current weather and a five day forecast
 Here is a link to the website: https://reverofsuturb.github.io/LosCuatroAmigosWeatherDashboard/
 
 ## Credits
-###API
+
+### API
 https://openweathermap.org
 
-###Collaborators:
-Bobby Simpson https://github.com/therealsweven
-Francisco Gutierrez Rodarte https://github.com/FranciscoGtzRodarte
-Jacob Thorne https://github.com/ShiningStars73
+### Collaborators:
+Bobby Simpson https://github.com/therealsweven <br>
+Francisco Gutierrez Rodarte https://github.com/FranciscoGtzRodarte <br>
+Jacob Thorne https://github.com/ShiningStars73 <br>
 Samuel Friedman https://github.com/reverofsuturb
 
 ## License
