@@ -55,10 +55,10 @@
         <div class="main-content col-12 col-md-9 p-5 text-light">
           <div class="header-weather">
             <div
-              class="card d-flex flex-row justify-content-between align-items-center p-5"
+              class="card d-flex flex-row flex-wrap justify-content-between align-items-center p-5"
             >
               <!-- Current Weather Card -->
-              <div id="currentWeather" class="card-body">
+              <div id="currentWeather" class="card-body col-md-6">
                 <h1 id="curH" class="card-title test-city text-start"></h1>
                 <p id="curTemp" class="text-start"></p>
                 <p id="curWind" class="text-start"></p>
@@ -76,8 +76,8 @@
             <div id="weatherTable" class="container-fluid pd-3"></div>
           </main>
           <div class="5day-forecast container-fluid text-center col-12">
-            <div class="row mt-3">
-              <div class="col">
+            <div class="row mt-3 d-flex flex-wrap justify-content-between">
+              <div class="col-12 col-sm-3 col-md-3 col-lg-2 mb-4">
                 <div class="card p-2">
                   <img
                     id="day1icon"
@@ -88,17 +88,14 @@
                     alt="..."
                   />
                   <div class="card-body-day1">
-                    <h5
-                      id="day1date"
-                      class="card-title test-city text-start"
-                    ></h5>
-                    <p id="day1temp" class="temp text-start mb-1"></p>
-                    <p id="day1wind" class="wind text-start mb-1"></p>
-                    <p id="day1hum" class="humidity text-start mb-1"></p>
+                    <h5 id="day1date" class="card-title test-city"></h5>
+                    <p id="day1temp" class="temp mb-1"></p>
+                    <p id="day1wind" class="wind mb-1"></p>
+                    <p id="day1hum" class="humidity mb-1"></p>
                   </div>
                 </div>
               </div>
-              <div class="col">
+              <div class="col-12 col-sm-3 col-md-3 col-lg-2 mb-4">
                 <div class="card p-2">
                   <img
                     id="day2icon"
@@ -109,17 +106,14 @@
                     alt="..."
                   />
                   <div class="card-body-day2">
-                    <h5
-                      id="day2date"
-                      class="card-title test-city text-start"
-                    ></h5>
-                    <p id="day2temp" class="temp text-start mb-1"></p>
-                    <p id="day2wind" class="wind text-start mb-1"></p>
-                    <p id="day2hum" class="humidity text-start mb-1"></p>
+                    <h5 id="day2date" class="card-title test-city"></h5>
+                    <p id="day2temp" class="temp mb-1"></p>
+                    <p id="day2wind" class="wind mb-1"></p>
+                    <p id="day2hum" class="humidity mb-1"></p>
                   </div>
                 </div>
               </div>
-              <div class="col">
+              <div class="col-12 col-sm-3 col-md-3 col-lg-2 mb-4">
                 <div class="card p-2">
                   <img
                     id="day3icon"
@@ -130,17 +124,14 @@
                     class="weather-img img-fluid"
                   />
                   <div class="card-body-day3">
-                    <h5
-                      id="day3date"
-                      class="card-title test-city text-start"
-                    ></h5>
-                    <p id="day3temp" class="temp text-start mb-1"></p>
-                    <p id="day3wind" class="wind text-start mb-1"></p>
-                    <p id="day3hum" class="humidity text-start mb-1"></p>
+                    <h5 id="day3date" class="card-title test-city"></h5>
+                    <p id="day3temp" class="temp mb-1"></p>
+                    <p id="day3wind" class="wind mb-1"></p>
+                    <p id="day3hum" class="humidity mb-1"></p>
                   </div>
                 </div>
               </div>
-              <div class="col">
+              <div class="col-12 col-sm-3 col-md-3 col-lg-2 mb-4">
                 <div class="card p-2">
                   <img
                     id="day4icon"
@@ -151,17 +142,14 @@
                     class="weather-img img-fluid"
                   />
                   <div class="card-body-day4">
-                    <h5
-                      id="day4date"
-                      class="card-title test-city text-start"
-                    ></h5>
-                    <p id="day4temp" class="temp text-start mb-1"></p>
-                    <p id="day4wind" class="wind text-start mb-1"></p>
-                    <p id="day4hum" class="humidity text-start mb-1"></p>
+                    <h5 id="day4date" class="card-title test-city"></h5>
+                    <p id="day4temp" class="temp mb-1"></p>
+                    <p id="day4wind" class="wind mb-1"></p>
+                    <p id="day4hum" class="humidity mb-1"></p>
                   </div>
                 </div>
               </div>
-              <div class="col">
+              <div class="col-12 col-sm-3 col-md-3 col-lg-2 mb-4">
                 <div class="card p-2">
                   <img
                     id="day5icon"
@@ -172,13 +160,10 @@
                     class="weather-img img-fluid"
                   />
                   <div class="card-body-day5">
-                    <h5
-                      id="day5date"
-                      class="card-title test-city text-start"
-                    ></h5>
-                    <p id="day5temp" class="temp text-start mb-1"></p>
-                    <p id="day5wind" class="wind text-start mb-1"></p>
-                    <p id="day5hum" class="humidity text-start mb-1"></p>
+                    <h5 id="day5date" class="card-title test-city"></h5>
+                    <p id="day5temp" class="temp mb-1"></p>
+                    <p id="day5wind" class="wind mb-1"></p>
+                    <p id="day5hum" class="humidity mb-1"></p>
                   </div>
                 </div>
               </div>
