@@ -10,164 +10,188 @@
       integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
       crossorigin="anonymous"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com">\
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    \
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./assets/style.css" />
     <title>Los Cuatro Amigos Weather Inc.</title>
   </head>
   <body>
-    <div class="background-img">
+    <div class="background-img min-100-vh">
       <nav class="navbar">
         <h1 class="text-center">Los Cuatro Amigos Weather Inc.</h1>
       </nav>
       <br />
       <!-- Stack the columns on mobile by making one full-width and the other half-width -->
-      <form id = "citySearch" class="container-fluid col-12 ms-4">
-        <div class="input-group">
-          <span class="input-group-text formBox" id="basic-addon1"
-            >Enter City: 
-            <input id = "userCity"
-              type="text"
-              class="form-control searchBox"
-              placeholder="Ex: Denver"
-              aria-label="Ex: Denver"
-              aria-describedby="basic-addon1"
-            />
-            <button type="submit" class="btn searchBtn searchBox btn-secondary btn-sm">
-              Search
-            </button>
-
-          </span>
-        </div>
-      </form>
-      <br>
-      <div class="container-fluid col-12">
-        <div class="row">
-          <div id="weatherList" class="me-5 pd-3 col-md-3">
-            <ul id="searchHistory"class="citySearch text-start">
-            </ul>
+      <div
+        class="d-flex flex-row flex-wrap align-start align-stretch-md align-content-start align-content-stretch-md"
+      >
+        <div class="side-bar col-12 col-md-3">
+          <form id="citySearch" class="m-3">
+            <div
+              class="formBox p-3 rounded-2 d-flex flex-column align-items-stretch"
+            >
+              <span class="mr-2" id="basic-addon1">Enter City: </span>
+              <input
+                id="userCity"
+                type="text"
+                class="form-input p-2 my-2 searchBox rounded-2"
+                placeholder="Ex: Denver"
+                aria-label="Ex: Denver"
+                aria-describedby="basic-addon1"
+              />
+              <button type="submit" class="btn searchBtn searchBox btn-primary">
+                Search
+              </button>
+            </div>
+          </form>
+          <div id="weatherList" class="pd-3">
+            <ul id="searchHistory" class="citySearch text-start p-2"></ul>
           </div>
-          <div class="ms-5 ps-5 col-md-6">
-            <div class="card">
-              <img id = "currentIcon"
+        </div>
+        <div class="main-content col-12 col-md-9 p-5 text-light">
+          <div class="header-weather">
+            <div
+              class="card d-flex flex-row justify-content-between align-items-center p-5"
+            >
+              <!-- Current Weather Card -->
+              <div id="currentWeather" class="card-body">
+                <h1 id="curH" class="card-title test-city text-start"></h1>
+                <p id="curTemp" class="text-start"></p>
+                <p id="curWind" class="text-start"></p>
+                <p id="curHumidity" class="text-start"></p>
+              </div>
+              <img
+                id="currentIcon"
                 src="./Assets/icons/sun vector.png"
-                height="50px"
-                width="50px"
-                class="weather-img"
+                class="img-fluid main-icon"
                 alt="..."
-            />
-            <!-- Current Weather Card -->
-            <div id = "currentWeather" class="card-body">
-              <h5 id="curH" class = "card-title test-city text-start"></h5>
-              <p id = "curTemp" class = "text-start"></p>
-              <p id = "curWind" class = "text-start"></p>
-              <p id = "curHumidity" class = "text-start"></p>
+              />
             </div>
           </div>
-        </div>
-        <main class="col-xs-12 col-sm-8 col-md-8 text-center">
-          
-          <div id="weatherTable" class="container-fluid pd-3">
-            
-          </div>
-        </div>
-      </div>
-      <br />
-      <div class="container-fluid text-center col-12">
-        <div class="row mb-5 pb-5">
-          <div class="col-md-3"></div>
-          <div class="col-md-9">
-            <div class="row g-1 ms-5 ps-5  col-md-9">
+          <main class="col-xs-12 col-sm-8 col-md-8 text-center">
+            <div id="weatherTable" class="container-fluid pd-3"></div>
+          </main>
+          <!-- </div>
+      <br /> -->
+          <div class="5day-forecast container-fluid text-center col-12">
+            <div class="row mt-3">
               <div class="col">
-                <div class="card">
-                  <img id = "day1icon"
+                <div class="card p-2">
+                  <img
+                    id="day1icon"
                     src="./assets/icons/sun vector.png"
                     height="50px"
                     width="50px"
-                    class="weather-img"
+                    class="weather-img img-fluid"
                     alt="..."
                   />
                   <div class="card-body-day1">
-                    <h5 id = "day1date"class="card-title test-city text-start"></h5>
-                    <p id = "day1temp" class="temp text-start"></p>
-                    <p id = "day1wind" class="wind text-start"></p>
-                    <p id = "day1hum" class="humidity text-start"></p>
+                    <h5
+                      id="day1date"
+                      class="card-title test-city text-start"
+                    ></h5>
+                    <p id="day1temp" class="temp text-start mb-1"></p>
+                    <p id="day1wind" class="wind text-start mb-1"></p>
+                    <p id="day1hum" class="humidity text-start mb-1"></p>
                   </div>
                 </div>
               </div>
               <div class="col">
-                <div class="card">
-                  <img id = "day2icon"
+                <div class="card p-2">
+                  <img
+                    id="day2icon"
                     src="./assets/icons/cloudy.png"
                     height="50px"
                     width="50px"
+                    class="weather-img img-fluid"
                     alt="..."
                   />
                   <div class="card-body-day2">
-                    <h5 id = "day2date" class="card-title test-city text-start"></h5>
-                    <p id = "day2temp" class="temp text-start"></p>
-                    <p id = "day2wind" class="wind text-start"></p>
-                    <p id = "day2hum" class="humidity text-start"></p>
+                    <h5
+                      id="day2date"
+                      class="card-title test-city text-start"
+                    ></h5>
+                    <p id="day2temp" class="temp text-start mb-1"></p>
+                    <p id="day2wind" class="wind text-start mb-1"></p>
+                    <p id="day2hum" class="humidity text-start mb-1"></p>
                   </div>
                 </div>
               </div>
               <div class="col">
-                <div class="card">
+                <div class="card p-2">
                   <img
-                  id = "day3icon"
+                    id="day3icon"
                     src="./assets/icons/cloudyrain.png"
                     height="50px"
                     width="50px"
                     alt="..."
+                    class="weather-img img-fluid"
                   />
                   <div class="card-body-day3">
-                    <h5 id = "day3date" class="card-title test-city text-start"></h5>
-                    <p id = "day3temp" class="temp text-start"></p>
-                    <p id = "day3wind" class="wind text-start"></p>
-                    <p id = "day3hum" class="humidity text-start"></p>
+                    <h5
+                      id="day3date"
+                      class="card-title test-city text-start"
+                    ></h5>
+                    <p id="day3temp" class="temp text-start mb-1"></p>
+                    <p id="day3wind" class="wind text-start mb-1"></p>
+                    <p id="day3hum" class="humidity text- mb-1"></p>
                   </div>
                 </div>
               </div>
               <div class="col">
-                <div class="card">
-                  <img id = "day4icon"
+                <div class="card p-2">
+                  <img
+                    id="day4icon"
                     src="./assets/icons/cloudysnow.png"
                     height="50px"
                     width="50px"
                     alt="..."
+                    class="weather-img img-fluid"
                   />
                   <div class="card-body-day4">
-                    <h5 id = "day4date" class="card-title test-city text-start"></h5>
-                    <p id = "day4temp" class="temp text-start"></p>
-                    <p id = "day4wind" class="wind text-start"></p>
-                    <p id = "day4hum" class="humidity text-start"></p>
+                    <h5
+                      id="day4date"
+                      class="card-title test-city text-start"
+                    ></h5>
+                    <p id="day4temp" class="temp text-start mb-1"></p>
+                    <p id="day4wind" class="wind text-start mb-1"></p>
+                    <p id="day4hum" class="humidity text-start mb-1"></p>
                   </div>
                 </div>
               </div>
               <div class="col">
-                <div class="card">
-                  <img id = "day5icon"
+                <div class="card p-2">
+                  <img
+                    id="day5icon"
                     src="./assets/icons/cloudylightning.png"
                     height="50px"
                     width="50px"
                     alt="..."
+                    class="weather-img img-fluid"
                   />
                   <div class="card-body-day5">
-                    <h5 id = "day5date" class="card-title test-city text-start"></h5>
-                    <p id = "day5temp" class="temp text-start"></p>
-                    <p id = "day5wind" class="wind text-start"></p>
-                    <p id = "day5hum" class="humidity text-start"></p>
+                    <h5
+                      id="day5date"
+                      class="card-title test-city text-start"
+                    ></h5>
+                    <p id="day5temp" class="temp text-start mb-1"></p>
+                    <p id="day5wind" class="wind text-start mb-1"></p>
+                    <p id="day5hum" class="humidity text-start mb-1"></p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
+        <nav class="navbar mt-5 pt-5">
+          <h3 class="text-start">LCA Weather Inc.</h3>
+        </nav>
       </div>
-      <nav class="navbar mt-5 pt-5">
-        <h3 class="text-start">  LCA Weather Inc.</h3>
-      </nav>
     </div>
     <script
       src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
